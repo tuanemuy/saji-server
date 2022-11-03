@@ -1,0 +1,6 @@
+- "!include public_colors.yaml"
+- "!include public_revisions.yaml"
+- "!include public_slices.yaml"
+- "!include public_slices_tags.yaml"
+- "!include public_tags.yaml"
+- "!include public_users.yaml"
