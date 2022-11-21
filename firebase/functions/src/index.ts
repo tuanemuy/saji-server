@@ -16,7 +16,7 @@ export const setCustomClaims = functions.auth.user().onCreate(async (user) => {
   try {
     await admin.auth().setCustomUserClaims(user.uid, customClaims);
 
-    await fetch(functions.config().hasura.endpoint, {
+    await fetch(functions.config().hasura.url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

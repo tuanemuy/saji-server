@@ -2,6 +2,15 @@ table:
   name: revisions
   schema: public
 insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+        - id
+        - slice_id
+        - content
+        - created_at
+        - updated_at
   - role: user
     permission:
       check: {}
@@ -9,6 +18,15 @@ insert_permissions:
         - content
         - slice_id
 select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - slice_id
+        - content
+        - created_at
+        - updated_at
+      filter: {}
   - role: user
     permission:
       columns:
@@ -20,6 +38,16 @@ select_permissions:
       filter: {}
       allow_aggregations: true
 update_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - slice_id
+        - content
+        - created_at
+        - updated_at
+      filter: {}
+      check: {}
   - role: user
     permission:
       columns:
@@ -27,6 +55,10 @@ update_permissions:
       filter: {}
       check: {}
 delete_permissions:
+  - role: anonymous
+    permission:
+      backend_only: false
+      filter: {}
   - role: user
     permission:
       backend_only: false

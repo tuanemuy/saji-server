@@ -2,6 +2,14 @@ table:
   name: colors
   schema: public
 insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+        - id
+        - hex
+        - user_id
+        - used_at
   - role: user
     permission:
       check:
@@ -12,6 +20,14 @@ insert_permissions:
         - used_at
         - user_id
 select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - hex
+        - user_id
+        - used_at
+      filter: {}
   - role: user
     permission:
       columns:
@@ -24,6 +40,15 @@ select_permissions:
           _eq: X-Hasura-User-Id
       allow_aggregations: true
 update_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - hex
+        - user_id
+        - used_at
+      filter: {}
+      check: {}
   - role: user
     permission:
       columns:
@@ -36,6 +61,10 @@ update_permissions:
         user_id:
           _eq: X-Hasura-User-Id
 delete_permissions:
+  - role: anonymous
+    permission:
+      backend_only: false
+      filter: {}
   - role: user
     permission:
       backend_only: false

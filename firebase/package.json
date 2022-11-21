@@ -1,4 +1,8 @@
 {
+  "name": "saji-server-firebase",
+  "scripts": {
+    "serve": "GOOGLE_APPLICATION_CREDENTIALS=\"/Users/hikaru/.firebase/keys/saji_app_engine_default_service_account_key.json\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" firebase emulators:start"
+  },
   "dependencies": {
     "@types/node-fetch": "^2.6.2",
     "graphql": "^16.6.0",
